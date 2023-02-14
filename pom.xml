@@ -48,7 +48,7 @@
 		<dependency>
 			<groupId>com.linecorp.bot</groupId>
 			<artifactId>line-bot-spring-boot</artifactId>
-			<version>6.0.0</version>
+			<version>5.0.0</version>
 		</dependency>
 
 	</dependencies>
@@ -68,6 +68,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>AILineBot</finalName>
 	</build>
 
 </project>
