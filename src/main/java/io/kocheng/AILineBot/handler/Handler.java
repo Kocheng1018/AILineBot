@@ -5,19 +5,18 @@ import com.linecorp.bot.model.event.message.TextMessageContent;
 import com.linecorp.bot.model.message.TextMessage;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
-import lombok.Value;
-
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import java.util.concurrent.ExecutionException;
+import io.kocheng.AILineBot.services.OpenAI;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @LineMessageHandler
 public class Handler {
+	@Autowired
+	OpenAI ai;
 	@EventMapping
 	public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
 		// 這邊做的就是簡單的 echo
-		System.out.println("event: ?" + event);
-		return new TextMessage(event.getMessage().getText() + "i am test");
+		String res = ai.askOpenAI(event.getMessage().getText());
+		return new TextMessage(res);
 	}
 
 	@EventMapping
