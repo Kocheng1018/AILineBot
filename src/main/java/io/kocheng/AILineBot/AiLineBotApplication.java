@@ -13,10 +13,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @LineMessageHandler
 public class AiLineBotApplication {
 	public static void main(String[] args) {
-		System.getenv().forEach((k,v) -> {
-			System.out.println(k + ": " + v);
-		});
-		System.out.println(System.getenv("OPENAI_API_KEY"));
 		SpringApplication.run(AiLineBotApplication.class, args);
 	}
 }
