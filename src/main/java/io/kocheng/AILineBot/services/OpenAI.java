@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OpenAI {
-    private String apiKey = System.getProperty("openApiKey");
+    private String apiKey = System.getenv("OPENAI_API_KEY");
 
     public String askOpenAI(String question) {
         if(question.equals("")) return "no question";
